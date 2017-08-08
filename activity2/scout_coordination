@@ -1,0 +1,23 @@
+# SCOUT COORDINATION
+
+Scout allocation: 
+
+1) where to go? 
+   Scouts receive from their coordinator a list of cells pairs indicating which building regions have to monitor: {[x_ini_1,y_ini_1,x_end_1,y_end_1],..[x_ini_n,y_ini_n,x_end_n,y_end_n]}
+
+2) who makes the decision? 
+Initially coordinator makes the decision but is not done as optimum as possible so that once the building monitoring is started scouts can self-organize.
+
+3) how is decided? 
+Scout coordinator has a list of buildings in the city (rect coordinates) and gives a weight according their area such that the higher weight the more difficult to monitor the whole building (weight = number of agents): min area is 1, max area is round(max/min)
+
+
+for each building b in building_list:
+  assign n agents to b such that n=weight such that:
+    1) use not assigned agents
+    2) use assigned agents that are closer
+
+Scout Routes: who plan? rules?
+There are no predefined routes, Scouts have to cover all the assigned points. When
+
+

@@ -1,0 +1,18 @@
+javac -classpath lib/jade.jar -d classes src/examples/protocols/ContractNetInitiatorAgent.java
+javac -classpath lib/jade.jar -d classes src/examples/protocols/ContractNetResponderAgent.java
+
+java -cp lib/jade.jar:classes jade.Boot -gui -agents responder:examples.protocols.ContractNetResponderAgent
+
+in the run configuration "run_jade" make sure the following is set:
+Main Class: jade.Boot
+Arguments: -gui SystemAgent:cat.urv.imas.agent.SystemAgent
+
+You can create new Agent classes by extending ImasAgent
+
+you should create the other agents in the setup() method of SystemAgent.
+
+ContainerController cc = this.getContainerController();
+agentController = cc.createNewAgent(name, classname, args);
+
+e.g: 
+agentController = cc.createNewAgent("Coordinator", CoordinatorAgent.class.getName(), null);
